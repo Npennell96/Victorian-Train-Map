@@ -6,6 +6,7 @@ For one of my Data Visualisation class assignemnts i set out to make a interacti
 ### [Melbourne Train Map](https://i.imgur.com/5BMDHQE.jpg)
     
 ### [Date source](https://www.data.vic.gov.au/data/dataset/ptv-timetable-and-geographic-information-2015-gtfs)
+The Data source has all the public trainsport, stops, lines, routes and times for trians, trams and buses in Victoria. 
 
 ### ![Image of my Map](https://raw.githubusercontent.com/Npennell96/Victorian-Train-Map/master/Train%20Map%20Image.PNG?token=Ako9J0DsPaZXn85q6rcXGNHG88a8cou_ks5bPWm9wA%3D%3D)
 
@@ -23,6 +24,8 @@ library(htmlwidgets)
 ```
 
 ## Fromating Data
+I remaned each file to represents what the subsection the data reflects, E.g; Bus (Metro Trains), Bus 2, Bus 3, Bus 4, Country Bus (Diffrent to Regional Buses), Metro Trains, Regoinal Bus, Sky Bus (Bus to the Airport), Tram, vline(regional Trains). 
+
 ```
 # Loading Data
   # Metro Trains
@@ -51,7 +54,10 @@ library(htmlwidgets)
       Vline.Routes <- separate(Vline.Routes, Shape.ID, c("Direcion", "line", 
                                                          "T/F", "mjp", "ID"), sep = "-")
       Vline.lines <- Vline.Routes[!duplicated(Vline.Routes$line), ]
+```
+For the Routes I Split the data into each line. Then removed the extra routes, based on trial and error, as not all routes go the full journey and there was no clear pattion for which do.
 
+```
 # Formatting Train Routes     
   # Metro Routes by Line
     # Alamein
